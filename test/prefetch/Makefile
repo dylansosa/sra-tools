@@ -913,7 +913,12 @@ wgs:
 	@#pwd
 	@echo '/LIBS/GUID = "8test002-6ab7-41b2-bfd0-prefetchpref"' > tmp/k
 
-	@cd tmp && NCBI_SETTINGS=k             $B/prefetch SRR619505  -fy 2> /dev/null
+	@cd tmp && NCBI_SETTINGS=k            $B/prefetch SRR619505  -fy 2> /dev/null
+	@ls tmp/SRR619505/SRR619505.sra tmp/SRR619505/NC_000005.8 > /dev/null
+	@rm -r tmp/S*
+
+	@echo '/libs/vdb/quality = "ZR"'                           >> tmp/k
+	@cd tmp && NCBI_SETTINGS=k            $B/prefetch SRR619505  -fy 2> /dev/null
 	@ls tmp/SRR619505/SRR619505.sra tmp/SRR619505/NC_000005.8 > /dev/null
 	@rm -r tmp/S*
 
